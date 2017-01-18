@@ -1205,7 +1205,8 @@ list(APPEND DUMPTEST_FILES ${CMAKE_SOURCE_DIR}/../testdata/scad/misc/escape-test
                            ${CMAKE_SOURCE_DIR}/../testdata/scad/misc/localfiles_dir/localfiles-compatibility-test.scad
                            ${CMAKE_SOURCE_DIR}/../testdata/scad/misc/allexpressions.scad
                            ${CMAKE_SOURCE_DIR}/../testdata/scad/misc/allfunctions.scad
-                           ${CMAKE_SOURCE_DIR}/../testdata/scad/misc/allmodules.scad)
+                           ${CMAKE_SOURCE_DIR}/../testdata/scad/misc/allmodules.scad
+                           ${CMAKE_SOURCE_DIR}/../testdata/scad/bugs/transform-nan-inf-tests.scad)
 
 list(APPEND CGALPNGTEST_2D_FILES ${FEATURES_2D_FILES} ${SCAD_DXF_FILES} ${EXAMPLE_2D_FILES})
 list(APPEND CGALPNGTEST_3D_FILES ${FEATURES_3D_FILES} ${SCAD_AMF_FILES} ${DEPRECATED_3D_FILES} ${ISSUES_3D_FILES} ${EXAMPLE_3D_FILES})
@@ -1613,7 +1614,9 @@ add_cmdline_test(cgalstlsanitytest EXE ${CMAKE_SOURCE_DIR}/cgalstlsanitytest SUF
 list(APPEND TRIVIAL_IMPORT_EXPORT_2D_FILES
             ${CMAKE_SOURCE_DIR}/../testdata/scad/misc/square10.scad)
 list(APPEND TRIVIAL_IMPORT_EXPORT_3D_FILES
-            ${CMAKE_SOURCE_DIR}/../testdata/scad/misc/cube10.scad)
+            ${CMAKE_SOURCE_DIR}/../testdata/scad/misc/cube10.scad
+            ${CMAKE_SOURCE_DIR}/../testdata/scad/bugs/transform-nan-inf-tests.scad)
+
 
 add_cmdline_test(monotonepngtest EXE ${OPENSCAD_BINPATH} ARGS --colorscheme=Monotone --render -o SUFFIX png FILES ${TRIVIAL_IMPORT_EXPORT_2D_FILES} ${TRIVIAL_IMPORT_EXPORT_3D_FILES})
 add_cmdline_test(stlpngtest EXE ${PYTHON_EXECUTABLE} SCRIPT ${CMAKE_SOURCE_DIR}/export_import_pngtest.py ARGS --openscad=${OPENSCAD_BINPATH} --format=STL EXPECTEDDIR monotonepngtest SUFFIX png FILES ${TRIVIAL_IMPORT_EXPORT_3D_FILES})
